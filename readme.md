@@ -5,7 +5,7 @@ Models to detect TrueNews and FakeNews on the DataCommons FactCheck dataset.
 
 ## Prepare dataset
 
-Extract evidence or context of each sample news by scrapping the link associated to the news`review_url`. Sentences that contains the label or words associated to the label are discrated. Since the articles are often long, we extract only a summary with Gensim library. The result is save in `data/evidences.json`.
+Extract evidence or context of each sample news by scrapping the link associated to the news`review_url`. Sentences that contains the label or words associated to the label are discrated. Since the articles are often long, we extract only a summary with Gensim library. The result is save in `data/evidences.json`. Since the extraction can take some time, the file `data/evidences.json` isavailabel in the repo.
 
 ```
 python extract_evidence.py
@@ -33,15 +33,15 @@ F1-Score:
 - CLAIM :
     - TrueNews : 0.57
     - FakeNews : 0.75
-    - Macro Avg. : 0.69
+    - Macro (Weighted Avg.) : 0.69
 - CLAIM + META :
     - TrueNews : 0.60
     - FakeNews : 0.79
-    - Macro Avg. : 0.73
+    - Macro (Weighted Avg.) : 0.73
 - CLAIM + META + EVIDENCE :
     - TrueNews : 0.62
     - FakeNews : 0.80
-    - Macro Avg. : 0.74
+    - Macro (Weighted Avg.) : 0.74
 ### LSTM
 - vocabulary building
 - encoding text data
@@ -54,15 +54,15 @@ F1-Score:
 - CLAIM :
     - TrueNews : 0.42
     - FakeNews : 0.79
-    - Macro Avg. : 0.60
+    - Macro (Weighted Avg.) : 0.60
 - CLAIM + META :
     - TrueNews : 0.51
     - FakeNews : 0.80
-    - Macro Avg. : 0.71
+    - Macro (Weighted Avg.) : 0.71
 - CLAIM + META + EVIDENCE :
     - TrueNews : 0.48
     - FakeNews : 0.79
-    - Macro Avg. : 0.69
+    - Macro (Weighted Avg.) : 0.69
 
 ### RoBERTa Classifier
 - concatening the text features
@@ -76,15 +76,15 @@ F1-Score:
 - CLAIM :
     - TrueNews : 0.42
     - FakeNews : 0.79
-    - Macro Avg. : 0.60
+    - Macro (Weighted Avg.) : 0.60
 - CLAIM + META :
     - TrueNews : 0.51
     - FakeNews : 0.80
-    - Macro Avg. : 0.71
+    - Macro (Weighted Avg.) : 0.71
 - CLAIM + META + EVIDENCE :
     - TrueNews : 0.48
     - FakeNews : 0.79
-    - Macro Avg. : 0.69
+    - Macro (Weighted Avg.) : 0.69
 
 ### Future Works
 
