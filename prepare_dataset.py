@@ -13,7 +13,7 @@ warnings.filterwarnings('ignore')
 
 # Make the label binary, remove_news are news from Flip-O-Meter or are neither true or false
 FAKE_NEWS = ['false', 'mostly false', 'pants on fire', 'four pinocchios', 'three pinocchios', 'two pinocchios', 'wrong', 'distorts the facts']
-TRUE_NEWS = ['true', 'half true', 'mostly true', 'one pinnochio', 'geppetto checkmark']
+TRUE_NEWS = ['true', 'half true', 'mostly true', 'one pinocchio', 'geppetto checkmark']
 REMOVE_NEWS = ['full flop', 'needs context', 'lacks context', 'flip- flop', 'half flip', 'flip flop', 'disputed', 'out of context', 'cherry picks', 'not the whole story']
 
 POLITICAL_PARTY = ['Democratic', 'Republican', 'Independent', 'Libertarian']

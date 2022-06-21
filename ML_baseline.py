@@ -166,5 +166,5 @@ if __name__ == "__main__":
         with open('result/result_metric.json', 'r+') as fp:
             data = json.load(fp)
             data[f"{type(best_clf.best_params_['classifier']).__name__}_{args.features}"] = metrics.classification_report(df_test['label'], preds, output_dict=True)
-            fp.seek(0)  # rewind
+            fp.seek(0)
             json.dump(data, fp, indent=4)
