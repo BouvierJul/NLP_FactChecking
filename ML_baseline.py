@@ -1,7 +1,9 @@
+import os
 import argparse
 import re
 import pandas as pd
 import numpy as np
+import json
 from sklearn.preprocessing import OneHotEncoder
 from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from sklearn.base import BaseEstimator, TransformerMixin
@@ -150,9 +152,19 @@ if __name__ == "__main__":
     # fit the model
     best_clf = clf.fit(df_train[features_name], df_train['label'])
 
-    print(best_clf.best_params_)
-
     best_clf.best_estimator_.fit(df_train[features_name], df_train['label'])
+
     preds = best_clf.best_estimator_.predict(df_test[features_name])
-    # print out metrics
-    print(metrics.classification_report(df_test['label'], preds))
+
+    metric_out = {f"{type(best_clf.best_params_['classifier']).__name__}_{args.features}" : metrics.classification_report(df_test['label'], preds, output_dict=True)}
+    
+    # export the classification results
+    if not os.path.exists('result/result_metric.json'):
+        with open('result/result_metric.json', 'w') as fp:
+            json.dump(metric_out, fp, indent=4)
+    else:
+        with open('result/result_metric.json', 'r+') as fp:
+            data = json.load(fp)
+            data[f"{type(best_clf.best_params_['classifier']).__name__}_{args.features}"] = metrics.classification_report(df_test['label'], preds, output_dict=True)
+            fp.seek(0)  # rewind
+            json.dump(data, fp, indent=4)
