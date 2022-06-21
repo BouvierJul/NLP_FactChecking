@@ -1,0 +1,16 @@
+tqdm>=4.62.1
+numpy==1.19.1
+torch==1.8.0
+pandas==1.1.3
+requests==2.19.0
+nltk==3.5
+beautifulsoup4==4.11.1
+contractions==0.1.72
+datasets==2.3.2
+gensim==4.2.0
+scikit_learn==1.1.1
+torchtext==0.9.0
+trafilatura==1.2.2
+transformers==4.20.1
+wikipedia==1.4.0
+xgboost==1.6.1

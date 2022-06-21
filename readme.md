@@ -3,6 +3,14 @@
 
 Models to detect TrueNews and FakeNews on the DataCommons FactCheck dataset.
 
+## Install Requirements
+
+Run the following to install all the requirements
+
+```
+pip install -r requirements.txt
+```
+
 ## Prepare dataset
 
 Extract evidence or context of each sample news by scrapping the link associated to the news`review_url`. Sentences that contains the label or words associated to the label are discrated. Since the articles are often long, we extract only a summary with Gensim library. The result is save in `data/evidences.json`. Since the extraction can take some time, the file `data/evidences.json` isavailabel in the repo.
